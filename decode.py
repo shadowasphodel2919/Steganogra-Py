@@ -1,6 +1,6 @@
 import cv2
 
-input_image = cv2.imread('output.png')
+input_image = cv2.imread('output.png', cv2.IMREAD_UNCHANGED) #cv2.IMREAD_UNCHANGED is to extract alpha channelwhich is usually 255 
 
 bin_message = ""
 octal = []
@@ -17,8 +17,6 @@ for i in range(len(input_image)):
             LSB = input_image[i][j][k]&1
             bin_message += str(LSB)
             temp += str(LSB)
-
-
 message = ""
 for i in range(0, len(bin_message), 8):
     byte = bin_message[i:i+8]
@@ -27,7 +25,6 @@ for i in range(0, len(bin_message), 8):
     else:
         message += chr(int(byte,2))
         j += 1
-
 print(message)
 
 

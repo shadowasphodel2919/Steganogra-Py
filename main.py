@@ -1,5 +1,5 @@
 import cv2
-input_image = cv2.imread('test.png')
+input_image = cv2.imread('test.png', cv2.IMREAD_UNCHANGED)#cv2.IMREAD_UNCHANGED is to extract alpha channelwhich is usually 255
 
 # Resize the image to required size
 input_image = cv2.resize(input_image, (512, 512))
